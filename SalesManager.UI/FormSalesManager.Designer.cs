@@ -1,4 +1,4 @@
-﻿namespace SalesManager
+﻿namespace SalesManager.UI
 {
     partial class FormSalesManager
     {

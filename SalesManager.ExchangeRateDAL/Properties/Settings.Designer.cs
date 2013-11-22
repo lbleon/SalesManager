@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SalesManager.Properties {
+namespace SalesManager.Control.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -20,6 +20,16 @@ namespace SalesManager.Properties {
         public static Settings Default {
             get {
                 return defaultInstance;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.webxml.com.cn/WebServices/ExchangeRateWebService.asmx")]
+        public string SalesManager_Control_ExchangeRateService_ExchangeRateWebService {
+            get {
+                return ((string)(this["SalesManager_Control_ExchangeRateService_ExchangeRateWebService"]));
             }
         }
     }

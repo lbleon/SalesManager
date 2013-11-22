@@ -13,7 +13,7 @@
 // 
 #pragma warning disable 1591
 
-namespace SalesManager.ExchangeRateService {
+namespace SalesManager.Control.ExchangeRateService {
     using System;
     using System.Web.Services;
     using System.Diagnostics;
@@ -42,7 +42,7 @@ namespace SalesManager.ExchangeRateService {
         
         /// <remarks/>
         public ExchangeRateWebService() {
-            this.Url = global::SalesManager.Properties.Settings.Default.SalesManager_ExchangeRateService_ExchangeRateWebService;
+            this.Url = global::SalesManager.Control.Properties.Settings.Default.SalesManager_Control_ExchangeRateService_ExchangeRateWebService;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;

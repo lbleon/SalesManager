@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
-namespace SalesManager
+namespace SalesManager.UI
 {
     public partial class BaseForm : DevExpress.XtraEditors.XtraForm
     {
