@@ -1,2 +1,4 @@
 *.suo
 _ReSharper.SalesManager
+bin
+obj
