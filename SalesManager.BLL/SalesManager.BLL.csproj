@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{5BE6FB58-B023-4554-8008-8CFEE3D43413}</ProjectGuid>
+    <ProjectGuid>{F1EBD5EB-087A-4055-B327-6C100D87694D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SalesManager.SQLiteDAL</RootNamespace>
-    <AssemblyName>SalesManager.SQLiteDAL</AssemblyName>
+    <RootNamespace>SalesManager.BLL</RootNamespace>
+    <AssemblyName>SalesManager.BLL</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,13 +40,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ProductAccessor.cs" />
+    <Compile Include="BrandLoader.cs" />
+    <Compile Include="ProductLoader.cs" />
+    <Compile Include="ProductTypeLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SalesManager.Common\SalesManager.Common.csproj">
-      <Project>{C9CEF30D-C0E4-424B-8F67-C9983687D71F}</Project>
-      <Name>SalesManager.Common</Name>
+    <ProjectReference Include="..\SalesManager.Model\SalesManager.Model.csproj">
+      <Project>{2C551D4B-50AE-4080-B788-9F91BA328DC6}</Project>
+      <Name>SalesManager.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SalesManager.SQLiteDAL\SalesManager.SQLiteDAL.csproj">
+      <Project>{5BE6FB58-B023-4554-8008-8CFEE3D43413}</Project>
+      <Name>SalesManager.SQLiteDAL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.priceCfgBtn = new DevExpress.XtraBars.BarButtonItem();
             this.productCfgBtn = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -49,7 +52,7 @@
             this.priceCfgBtn,
             this.productCfgBtn});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 3;
+            this.ribbonControl1.MaxItemId = 4;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -58,14 +61,14 @@
             // 
             // priceCfgBtn
             // 
-            this.priceCfgBtn.Caption = "Price Configuartion";
+            this.priceCfgBtn.Caption = "Price Configuration";
             this.priceCfgBtn.Id = 1;
             this.priceCfgBtn.LargeGlyph = global::SalesManager.Properties.Resources.calc;
             this.priceCfgBtn.Name = "priceCfgBtn";
             // 
             // productCfgBtn
             // 
-            this.productCfgBtn.Caption = "Product Configuation";
+            this.productCfgBtn.Caption = "Product Configuration";
             this.productCfgBtn.Id = 2;
             this.productCfgBtn.LargeGlyph = global::SalesManager.Properties.Resources.chinaz8;
             this.productCfgBtn.Name = "productCfgBtn";
@@ -85,15 +88,21 @@
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Configuation";
             // 
-            // SalesManager
+            // xtraTabbedMdiManager1
+            // 
+            this.xtraTabbedMdiManager1.MdiParent = this;
+            // 
+            // FormSalesManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(944, 502);
             this.Controls.Add(this.ribbonControl1);
-            this.Name = "SalesManager";
+            this.IsMdiContainer = true;
+            this.Name = "FormSalesManager";
             this.Text = "Sales Manager";
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -105,5 +114,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.BarButtonItem priceCfgBtn;
         private DevExpress.XtraBars.BarButtonItem productCfgBtn;
+        private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager1;
     }
 }
