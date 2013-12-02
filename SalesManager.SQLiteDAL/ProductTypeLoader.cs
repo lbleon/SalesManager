@@ -4,17 +4,16 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using SalesManager.Model;
-using SalesManager.SQLiteDAL;
 
-namespace SalesManager.BLL
+namespace SalesManager.SQLiteDAL
 {
-    internal class ProductTypeLoader
+    public class ProductTypeLoader
     {
         #region Methods
 
         public static ProductTypeList LoadProductTypeList()
         {
-            DataTable dataTable = ProductAccessor.QueryProductTypes();
+            DataTable dataTable = DBAccessor.QueryProductTypes();
             if (dataTable == null)
             {
                 return null;
@@ -33,6 +32,10 @@ namespace SalesManager.BLL
             int id = Convert.ToInt32(dataRow["PID"]);
             string name = dataRow["ProductType"].ToString();
             ProductType productType = new ProductType(id, name);
+            if (!Convert.IsDBNull(dataRow["ParentPID"]))
+            {
+                productType.ParentID = Convert.ToInt32(dataRow["ParentPID"]);
+            }
             return productType;
         }
 

@@ -34,6 +34,12 @@ namespace SalesManager.Model
             Types.Remove(type);
         }
 
+        public ProductType GetType(int id)
+        {
+            ProductType result = Types.Find(type => type.ID == id);
+            return result;
+        }
+
         #endregion
     }
 }

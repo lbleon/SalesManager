@@ -63,14 +63,14 @@
             // 
             this.priceCfgBtn.Caption = "Price Configuration";
             this.priceCfgBtn.Id = 1;
-            this.priceCfgBtn.LargeGlyph = global::SalesManager.Properties.Resources.calc;
+            this.priceCfgBtn.LargeGlyph = global::SalesManager.UI.Properties.Resources.calc;
             this.priceCfgBtn.Name = "priceCfgBtn";
             // 
             // productCfgBtn
             // 
             this.productCfgBtn.Caption = "Product Configuration";
             this.productCfgBtn.Id = 2;
-            this.productCfgBtn.LargeGlyph = global::SalesManager.Properties.Resources.chinaz8;
+            this.productCfgBtn.LargeGlyph = global::SalesManager.UI.Properties.Resources.chinaz8;
             this.productCfgBtn.Name = "productCfgBtn";
             this.productCfgBtn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.productCfgBtn_ItemClick);
             // 

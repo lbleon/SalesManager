@@ -34,6 +34,12 @@ namespace SalesManager.Model
             Brands.Remove(brand);
         }
 
+        public Brand GetBrand(int id)
+        {
+            Brand result = Brands.Find(brand => brand.ID == id);
+            return result;
+        }
+
         #endregion
     }
 }

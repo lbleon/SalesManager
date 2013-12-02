@@ -4,17 +4,16 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using SalesManager.Model;
-using SalesManager.SQLiteDAL;
 
-namespace SalesManager.BLL
+namespace SalesManager.SQLiteDAL
 {
-    internal class BrandLoader
+    public class BrandLoader
     {
         #region Methods
 
         public static BrandList LoadBrands()
         {
-            DataTable dataTable = ProductAccessor.QueryBrands();
+            DataTable dataTable = DBAccessor.QueryBrands();
             if (dataTable == null)
             {
                 return null;

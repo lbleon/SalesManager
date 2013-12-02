@@ -40,12 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BrandLoader.cs" />
-    <Compile Include="ProductLoader.cs" />
-    <Compile Include="ProductTypeLoader.cs" />
+    <Compile Include="ProductController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SalesManager.Common\SalesManager.Common.csproj">
+      <Project>{C9CEF30D-C0E4-424B-8F67-C9983687D71F}</Project>
+      <Name>SalesManager.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SalesManager.Model\SalesManager.Model.csproj">
       <Project>{2C551D4B-50AE-4080-B788-9F91BA328DC6}</Project>
       <Name>SalesManager.Model</Name>

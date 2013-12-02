@@ -11,7 +11,7 @@ namespace SalesManager.Common
 {
     public class SQLiteDBHelper
     {
-        private static readonly string connectionString = ConfigurationSettings.AppSettings["SqlConn"];
+        private static readonly string connectionString = ConfigurationSettings.AppSettings["SqlConnect"];
 
         #region Methods
         /// <summary>  
