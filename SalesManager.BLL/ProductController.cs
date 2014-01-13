@@ -14,7 +14,7 @@ namespace SalesManager.BLL
         private BrandList brandList = null;
         private ProductTypeList productTypeList = null;
         private ProductList productList = null;
-
+        
         #endregion
 
         #region Constructor
@@ -53,6 +53,24 @@ namespace SalesManager.BLL
                 productTypeList = ProductTypeLoader.LoadProductTypeList();
             }
             return productTypeList;
+        }
+
+        public bool AddProductType(string typeName, int parentID)
+        {
+            int id = DBAccessor.AddProductType(typeName, parentID);
+            if (id == -1)
+            {
+                return false;
+            }
+            ProductType type = new ProductType(id, typeName, parentID);
+            productTypeList.AddType(type);
+            return true;
+        }
+
+        public void DeleteProductType(ProductType type)
+        {
+            productTypeList.RemoveType(type);
+            DBAccessor.DeleteProductType(type.ID);
         }
 
         #endregion

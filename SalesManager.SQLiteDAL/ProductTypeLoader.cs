@@ -31,11 +31,8 @@ namespace SalesManager.SQLiteDAL
         {
             int id = Convert.ToInt32(dataRow["PID"]);
             string name = dataRow["ProductType"].ToString();
-            ProductType productType = new ProductType(id, name);
-            if (!Convert.IsDBNull(dataRow["ParentPID"]))
-            {
-                productType.ParentID = Convert.ToInt32(dataRow["ParentPID"]);
-            }
+            int parentID = Convert.ToInt32(dataRow["ParentPID"]);
+            ProductType productType = new ProductType(id, name, parentID);
             return productType;
         }
 

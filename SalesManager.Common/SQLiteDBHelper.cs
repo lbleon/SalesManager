@@ -61,6 +61,49 @@ namespace SalesManager.Common
             }
             return affectedRows;
         }
+
+        /// <summary>
+        /// 对SQLite数据库执行Insert操作，并返回rowID。
+        /// </summary>
+        /// <param name="sql">要执行的Insert SQL语句</param>
+        /// <param name="parameters">执行Insert语句所需要的参数，参数必须以它们在SQL语句中的顺序为准</param>
+        /// <returns>RowID</returns>
+        public static int ExcuteInsertReturnRowID(string sql, SQLiteParameter[] parameters = null)
+        {
+            int rowID = -1;
+            int affectedRows;
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+                using (DbTransaction transaction = connection.BeginTransaction())
+                {
+                    using (SQLiteCommand command = new SQLiteCommand(connection))
+                    {
+                        command.CommandText = sql;
+                        if (parameters != null)
+                        {
+                            command.Parameters.AddRange(parameters);
+                        }
+                        affectedRows = command.ExecuteNonQuery();
+                    }
+                    transaction.Commit();
+                }
+                if (affectedRows == 0)
+                {
+                    return rowID;
+                }
+                string getRowIDSql = "select last_insert_rowid()";
+                using (SQLiteCommand getRowIDCmd = new SQLiteCommand(getRowIDSql, connection))
+                {
+                    SQLiteDataAdapter adapter = new SQLiteDataAdapter(getRowIDCmd);
+                    DataTable data = new DataTable();
+                    adapter.Fill(data);
+                    rowID = Convert.ToInt32(data.Rows[0][0]);
+                }
+            }
+            return rowID;
+        }
+        
         /// <summary>  
         /// 执行一个查询语句，返回一个关联的SQLiteDataReader实例  
         /// </summary>  

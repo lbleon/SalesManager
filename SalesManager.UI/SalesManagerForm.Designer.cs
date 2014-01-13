@@ -1,6 +1,6 @@
 ﻿namespace SalesManager.UI
 {
-    partial class FormSalesManager
+    partial class SalesManagerForm
     {
         /// <summary>
         /// Required designer variable.

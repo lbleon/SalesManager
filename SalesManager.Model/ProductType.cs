@@ -17,10 +17,11 @@ namespace SalesManager.Model
 
         #region Constructor
 
-        public ProductType(int id, string name)
+        public ProductType(int id, string name, int parentID)
         {
             ID = id;
             Name = name;
+            ParentID = parentID;
         }
 
         #endregion

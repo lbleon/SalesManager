@@ -15,7 +15,7 @@ namespace SalesManager.UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormSalesManager());
+            Application.Run(new SalesManagerForm());
         }
     }
 }

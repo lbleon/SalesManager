@@ -79,5 +79,14 @@ namespace SalesManager.UI.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Type.
+        /// </summary>
+        internal static string FormProductCfg_addTypeBarBtn_ItemClick_Add_Type {
+            get {
+                return ResourceManager.GetString("FormProductCfg_addTypeBarBtn_ItemClick_Add_Type", resourceCulture);
+            }
+        }
     }
 }

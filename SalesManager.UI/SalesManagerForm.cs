@@ -9,9 +9,9 @@ using DevExpress.XtraEditors;
 
 namespace SalesManager.UI
 {
-    public partial class FormSalesManager : BaseForm
+    public partial class SalesManagerForm : BaseForm
     {
-        public FormSalesManager()
+        public SalesManagerForm()
         {
             InitializeComponent();
             IsMdiContainer = true;
@@ -19,7 +19,7 @@ namespace SalesManager.UI
 
         private void productCfgBtn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            FormProductCfg formProductCfg = new FormProductCfg();
+            ProductCfgForm formProductCfg = new ProductCfgForm();
             formProductCfg.MdiParent = this;
             formProductCfg.WindowState = FormWindowState.Maximized;
             formProductCfg.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

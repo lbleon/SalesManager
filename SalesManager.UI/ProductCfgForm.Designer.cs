@@ -1,6 +1,6 @@
 ﻿namespace SalesManager.UI
 {
-    partial class FormProductCfg
+    partial class ProductCfgForm
     {
         /// <summary>
         /// Required designer variable.
@@ -97,6 +97,8 @@
             this.treeListColumn1.FieldName = "Name";
             this.treeListColumn1.Name = "treeListColumn1";
             this.treeListColumn1.OptionsColumn.AllowEdit = false;
+            this.treeListColumn1.OptionsColumn.AllowMove = false;
+            this.treeListColumn1.OptionsColumn.AllowMoveToCustomizationForm = false;
             this.treeListColumn1.Visible = true;
             this.treeListColumn1.VisibleIndex = 0;
             // 
@@ -250,7 +252,7 @@
             this.delBarBtn.Name = "delBarBtn";
             this.delBarBtn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.delBarBtn_ItemClick);
             // 
-            // FormProductCfg
+            // ProductCfgForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -262,7 +264,7 @@
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.Name = "FormProductCfg";
+            this.Name = "ProductCfgForm";
             this.Text = "Product Configuration";
             this.Load += new System.EventHandler(this.FormProductCfg_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
