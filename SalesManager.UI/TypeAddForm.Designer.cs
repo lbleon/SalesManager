@@ -82,7 +82,7 @@
             this.typeTextEdit.Location = new System.Drawing.Point(83, 53);
             this.typeTextEdit.Name = "typeTextEdit";
             this.typeTextEdit.Size = new System.Drawing.Size(272, 21);
-            this.typeTextEdit.TabIndex = 1;
+            this.typeTextEdit.TabIndex = 2;
             // 
             // labelControl1
             // 
@@ -100,7 +100,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.parentTypeEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.parentTypeEdit.Size = new System.Drawing.Size(272, 21);
-            this.parentTypeEdit.TabIndex = 3;
+            this.parentTypeEdit.TabIndex = 1;
             this.parentTypeEdit.Popup += new System.EventHandler(this.parentTypeEdit_Popup);
             this.parentTypeEdit.CloseUp += new DevExpress.XtraEditors.Controls.CloseUpEventHandler(this.parentTypeEdit_CloseUp);
             // 
@@ -121,7 +121,7 @@
             this.addBtn.Location = new System.Drawing.Point(208, 4);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(75, 23);
-            this.addBtn.TabIndex = 1;
+            this.addBtn.TabIndex = 3;
             this.addBtn.Text = "Add";
             this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
@@ -132,7 +132,7 @@
             this.cancelBtn.Location = new System.Drawing.Point(289, 4);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(75, 23);
-            this.cancelBtn.TabIndex = 0;
+            this.cancelBtn.TabIndex = 4;
             this.cancelBtn.Text = "Cancel";
             this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 

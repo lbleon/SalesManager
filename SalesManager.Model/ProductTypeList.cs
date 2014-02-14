@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SalesManager.Model
 {
-    public class ProductTypeList
+    public class ProductTypeList : ICloneable
     {
         #region Properties
 
@@ -37,6 +37,23 @@ namespace SalesManager.Model
         public ProductType GetType(int id)
         {
             ProductType result = Types.Find(type => type.ID == id);
+            return result;
+        }
+
+        public ProductType GetType(string typeName)
+        {
+            ProductType result = Types.Find(type => type.Name == typeName);
+            return result;
+        }
+
+        #endregion
+
+        #region Implementation of ICloneable
+
+        public object Clone()
+        {
+            ProductTypeList result = new ProductTypeList();
+            result.Types.AddRange(this.Types);
             return result;
         }
 

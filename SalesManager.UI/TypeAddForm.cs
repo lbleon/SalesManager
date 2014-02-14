@@ -9,6 +9,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraTreeList;
 using DevExpress.XtraTreeList.Columns;
 using DevExpress.XtraTreeList.Nodes;
+using SalesManager.BLL;
 using SalesManager.Model;
 
 namespace SalesManager.UI
@@ -23,6 +24,7 @@ namespace SalesManager.UI
 
         #region Members
 
+        private ProductController controller;
         private ProductTypeList typeList;
         private PopupContainerControl popupControl;
         private TreeList treeList;
@@ -32,16 +34,23 @@ namespace SalesManager.UI
 
         #region Constructor
 
-        public TypeAddForm(ProductTypeList typeList)
+        public TypeAddForm(ProductController controller)
         {
             InitializeComponent();
-            this.typeList = typeList;
+            this.controller = controller;
+            InitTypeList();
             InitComboBox();
         }
 
         #endregion
 
         #region Methods
+
+        private void InitTypeList()
+        {
+            typeList = (ProductTypeList)controller.GetProductTypes().Clone();
+            typeList.AddType(new ProductType(0, "All Product Types", -1));
+        }
 
         private void InitComboBox()
         {
@@ -71,8 +80,6 @@ namespace SalesManager.UI
             treeList.OptionsSelection.MultiSelect = false;
             treeList.Columns.AddRange(new TreeListColumn[] { treeListColumn });
             treeList.DataSource = typeList.Types;
-            treeList.CollapseAll();
-            
         }
 
         private void InitPopupContainerControl()
@@ -81,6 +88,9 @@ namespace SalesManager.UI
             Controls.Add(popupControl);
             popupControl.Controls.Add(treeList);
             parentTypeEdit.Properties.PopupControl = popupControl;
+            parentTypeEdit.Text = "All Product Types";
+            treeList.CollapseAll();
+            treeList.Width = parentTypeEdit.Width;
         }
 
         private void cancelBtn_Click(object sender, EventArgs e)
@@ -90,44 +100,81 @@ namespace SalesManager.UI
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            if (!GetTypeName())
+            string typeName = GetTypeName();
+            if (string.IsNullOrEmpty(typeName))
             {
                 XtraMessageBox.Show("Type name should not be null.");
                 return;
             }
+            int parentID = GetParentID();
+            if (parentID == -1)
+            {
+                XtraMessageBox.Show("Parent type name is incorrect, please check.");
+                return;
+            }
+            if (!AddType(typeName, parentID))
+            {
+                XtraMessageBox.Show("Add product type failed.");
+            }
+            else
+            {
+                XtraMessageBox.Show("Add product type succeeded.");
+            }
+            treeList.RefreshDataSource();
             Close();
         }
 
-        private bool GetTypeName()
+        private string GetTypeName()
         {
             if (string.IsNullOrEmpty(typeTextEdit.Text))
             {
-                return false;
+                return null;
             }
-            TypeName = typeTextEdit.Text;
-            return true;
+            return typeTextEdit.Text;
+        }
+
+        private int GetParentID()
+        {
+            string parentTypeName = parentTypeEdit.Text;
+            if (string.IsNullOrEmpty(parentTypeName))
+            {
+                return 0;
+            }
+            ProductType parentType = typeList.GetType(parentTypeName);
+            if (parentType == null)
+            {
+                return -1;
+            }
+            return parentType.ID;
+        }
+
+        private bool AddType(string typeName, int parentID)
+        {
+            return controller.AddProductType(typeName, parentID);
         }
 
         #endregion
 
         #region Events
 
-        private void TreeList_FocusedNodeChanged(object sender, FocusedNodeChangedEventArgs e)
+        private void productTypeTree_AfterFocusNode(object sender, DevExpress.XtraTreeList.NodeEventArgs e)
         {
-            int i = 0;
-            
+            int currentID = (int)treeList.FocusedNode.GetValue("ID");
+            parentTypeEdit.Text = typeList.GetType(currentID).Name;
+            parentTypeEdit.ClosePopup();
         }
-
-        #endregion
 
         private void parentTypeEdit_Popup(object sender, EventArgs e)
         {
-            treeList.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.TreeList_FocusedNodeChanged);
+            this.treeList.AfterFocusNode += new DevExpress.XtraTreeList.NodeEventHandler(this.productTypeTree_AfterFocusNode);
         }
 
         private void parentTypeEdit_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
         {
-            treeList.FocusedNodeChanged -= new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.TreeList_FocusedNodeChanged);
+            treeList.AfterFocusNode -= new DevExpress.XtraTreeList.NodeEventHandler(this.productTypeTree_AfterFocusNode);
+
         }
+
+        #endregion
     }
 }

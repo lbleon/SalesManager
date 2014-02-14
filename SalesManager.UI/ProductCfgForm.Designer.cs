@@ -48,7 +48,6 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.addTypeBarBtn = new DevExpress.XtraBars.BarButtonItem();
-            this.addSubTypeBarBtn = new DevExpress.XtraBars.BarButtonItem();
             this.delBarBtn = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -89,6 +88,7 @@
             this.productTypeTree.OptionsView.ShowVertLines = false;
             this.productTypeTree.Size = new System.Drawing.Size(166, 297);
             this.productTypeTree.TabIndex = 0;
+            
             this.productTypeTree.MouseUp += new System.Windows.Forms.MouseEventHandler(this.productTypeTree_MouseUp);
             // 
             // treeListColumn1
@@ -199,7 +199,6 @@
             this.productTypeBarManager.Form = this;
             this.productTypeBarManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.addTypeBarBtn,
-            this.addSubTypeBarBtn,
             this.delBarBtn});
             this.productTypeBarManager.MaxItemId = 3;
             // 
@@ -237,13 +236,6 @@
             this.addTypeBarBtn.Id = 0;
             this.addTypeBarBtn.Name = "addTypeBarBtn";
             this.addTypeBarBtn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.addTypeBarBtn_ItemClick);
-            // 
-            // addSubTypeBarBtn
-            // 
-            this.addSubTypeBarBtn.Caption = "Add Sub Type";
-            this.addSubTypeBarBtn.Id = 1;
-            this.addSubTypeBarBtn.Name = "addSubTypeBarBtn";
-            this.addSubTypeBarBtn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.addSubTypeBarBtn_ItemClick);
             // 
             // delBarBtn
             // 
@@ -305,7 +297,6 @@
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.BarButtonItem addTypeBarBtn;
-        private DevExpress.XtraBars.BarButtonItem addSubTypeBarBtn;
         private DevExpress.XtraBars.BarButtonItem delBarBtn;
     }
 }

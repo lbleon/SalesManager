@@ -55,12 +55,12 @@ namespace SalesManager.UI
         private void BindProductTypeTree()
         {
             productTypeTree.DataSource = productTypeList.Types;
-            productTypeTree.CollapseAll();
+            productTypeTree.ExpandAll();
         }
 
         private void InitMenu()
         {
-            productTypeMenu.AddItems(new BarItem[] { addTypeBarBtn, addSubTypeBarBtn, delBarBtn });
+            productTypeMenu.AddItems(new BarItem[] { addTypeBarBtn, delBarBtn });
         }
 
         private ProductType GetCurrentType()
@@ -70,60 +70,9 @@ namespace SalesManager.UI
 
         private void AddProductType()
         {
-            ProductType currentType = GetCurrentType();
-            if (currentType == null)
-            {
-                XtraMessageBox.Show("Please choose a product type first!");
-                return;
-            }
-            string typeName = GetProductTypeName("Add Type");
-            if (string.IsNullOrEmpty(typeName))
-            {
-                return;
-            }
-            if (!controller.AddProductType(typeName, currentType.ParentID))
-            {
-                XtraMessageBox.Show("Add product type failed.");
-            }
-            else
-            {
-                XtraMessageBox.Show("Add product type succeeded.");
-            }
-            productTypeTree.RefreshDataSource();
-        }
-
-        private void AddSubProductType()
-        {
-            ProductType currentType = GetCurrentType();
-            if (currentType == null)
-            {
-                XtraMessageBox.Show("Please choose a product type first!");
-                return;
-            }
-            string typeName = GetProductTypeName("Add Sub Type");
-            if (string.IsNullOrEmpty(typeName))
-            {
-                return;
-            }
-            if (!controller.AddProductType(typeName, currentType.ID))
-            {
-                XtraMessageBox.Show("Add Sub product type failed.");
-            }
-            else
-            {
-                XtraMessageBox.Show("Add Sub product type succeeded.");
-            }
-            productTypeTree.RefreshDataSource();
-        }
-
-        private string GetProductTypeName(string formText)
-        {
-            TypeAddForm form = new TypeAddForm(productTypeList);
-            form.Text = formText;
+            TypeAddForm form = new TypeAddForm(controller);
             form.ShowDialog();
-            string result = form.TypeName;
-            form.Dispose();
-            return result;
+            productTypeTree.RefreshDataSource();
         }
 
         private void DeleteProductType()
@@ -163,11 +112,6 @@ namespace SalesManager.UI
             AddProductType();
         }
 
-        private void addSubTypeBarBtn_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            AddSubProductType();
-        }
-
         private void delBarBtn_ItemClick(object sender, ItemClickEventArgs e)
         {
             DeleteProductType();
@@ -175,8 +119,7 @@ namespace SalesManager.UI
 
         #endregion
 
-
-
+        
         
 
     }
